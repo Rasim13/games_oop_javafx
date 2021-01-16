@@ -5,18 +5,14 @@ public class Win {
         boolean rsl = false;
         int[] rst = new int[board.length];
         for (int i = 0; i < board.length; i++) {
-            rst[i] = board[i][i];
-            if(rst[i] == 1) {
-                for (int index = 0; index < board.length; index++) {
-                    if(monoHorizontal(board,index) || monoVertical(board,index)) {
-                        rsl = true;
-                        break;
-                    }
-                }
+            if(monoHorizontal(board,i) || monoVertical(board,i)) {
+                rsl = true;
+                break;
             }
         }
         return rsl;
     }
+
     public static boolean monoHorizontal(int[][] board, int row) {
         boolean result = true;
         for (int index = 0; index < board[row].length; index++) {
